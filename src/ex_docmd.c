@@ -4214,7 +4214,7 @@ set_one_cmd_context(
 	case CMD_imenu:	    case CMD_inoremenu:	    case CMD_iunmenu:
 	case CMD_cmenu:	    case CMD_cnoremenu:	    case CMD_cunmenu:
 	case CMD_tmenu:				    case CMD_tunmenu:
-	case CMD_popup:	    case CMD_tearoff:	    case CMD_emenu:
+	case CMD_popup:				    case CMD_emenu:
 	    return set_context_in_menu_cmd(xp, cmd, arg, forceit);
 #endif
 
@@ -8257,6 +8257,7 @@ ex_splitview(exarg_T *eap)
      * Either open new tab page or split the window.
      */
     if (eap->cmdidx == CMD_tabedit
+	    || eap->cmdidx == CMD_tabedit2
 	    || eap->cmdidx == CMD_tabfind
 	    || eap->cmdidx == CMD_tabnew)
     {
@@ -8630,6 +8631,7 @@ do_exedit(
     if ((eap->cmdidx == CMD_new
 		|| eap->cmdidx == CMD_tabnew
 		|| eap->cmdidx == CMD_tabedit
+		|| eap->cmdidx == CMD_tabedit2
 		|| eap->cmdidx == CMD_vnew) && *eap->arg == NUL)
     {
 	/* ":new" or ":tabnew" without argument: edit an new empty buffer */
